@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Memeory">
+</Property><Property Name="解决方案文件" Value="E:\vs\Memeory\Memeory\Memeory.sln">
+</Property><Property Name="用户选项文件" Value="E:\vs\Memeory\Memeory\Memeory.suo">
+</Property><Property Name="Date" Value="2015年3月2日">
+</Property><Property Name="Time" Value="10:38">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="Memeory.sln" Description="文件已成功备份为 E:\vs\Memeory\Memeory\Memeory.sln.old">
+</Event><Event ErrorLevel="0" Project="" Source="Memeory.suo" Description="文件已成功备份为 E:\vs\Memeory\Memeory\Memeory.suo.old">
+</Event><Event ErrorLevel="0" Project="Memeory" Source="Memeory.vcproj" Description="Converting project file 'E:\vs\Memeory\Memeory\Memeory.vcproj'.">
+</Event><Event ErrorLevel="1" Project="Memeory" Source="Memeory.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="Memeory" Source="Memeory.vcproj" Description="Done converting to new project file 'E:\vs\Memeory\Memeory\Memeory.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="Memeory" Source="Memeory.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Memeory.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="Memeory.sln" Description="Converted">
+</Event></UpgradeLog>

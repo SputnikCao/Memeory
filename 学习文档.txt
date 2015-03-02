@@ -1,0 +1,58 @@
+目的： 熟练使用MFC开发对话框程序 
+//--------------------------1.0版---------------2010.12.13----------------------//
+
+主要技术：
+
+1.实现类似悬浮框 实际上是一个无标题的Dialog
+
+2.两个Dialog之间的通信
+
+3.Progress控件的使用 主要函数 SetPos 
+
+4.实现点击客户区域拖动窗口技术
+方法1：在点击客户区的时候响应这个函数 模拟成点击标题
+
+      
+方法2：当响应LButtonDown时，发送点击对话框消息，此方法较好
+
+
+5.背景色透明
+SetWindowLong(GetSafeHwnd(),GWL_EXSTYLE,WS_EX_LAYERED);//设置扩展形式
+	if(!::SetLayeredWindowAttributes(this->m_hWnd,0,(255*100)/55,LWA_ALPHA))//透明背景
+		     MessageBox(_T("背景透明失败"));	
+
+6.将程序最小化到托盘：主要是响应一个自定义消息,并且动态建立菜单
+Shell_NotifyIcon 函数
+NOTIFYICONDATA 结构体
+
+
+7.程序开始时隐藏
+ModifyStyleEx(WS_EX_APPWINDOW, WS_EX_TOOLWINDOW);//在任务栏隐藏
+::SetWindowPos(this->m_hWnd,HWND_TOPMOST,m_ClientRc.left,m_ClientRc.top,m_ClientRc.Width(),m_ClientRc.Height(),SWP_NOMOVE);// 置顶显示
+
+8.响应鼠标移出客户区消息，需要程序响应TrackMouseEvent，然后就可以响应MouseLeave消息
+::_TrackMouseEvent(&csTME); //开启Windows的WM_MOUSELEAVE，WM_MOUSEHOVER事件支持
+
+9 对话框背景色的设定，还有控件背景透明
+
+10 获取屏幕坐标 GetSystemMetrics(SM_CYSCREEN);
+
+11.CPU使用度的获取 
+	SYSTEM_PERFORMANCE_INFORMATION SysPerfInfo; 
+	SYSTEM_TIME_INFORMATION SysTimeInfo; 
+	SYSTEM_BASIC_INFORMATION SysBaseInfo; 
+还要加载一个DLL
+NtQuerySystemInformation = (PROCNTQSI)GetProcAddress(GetModuleHandle(_T("ntdll")),(LPCSTR)"NtQuerySystemInformation");
+
+注意函数
+NtQuerySystemInformation 根据传参的不同获得不同的信息
+
+需要注意的是，第一次调用的时候函数并不能计算出值，还要第二次
+
+12.连接网页ShellExecute(this->m_hWnd, _T("open"), m_url,
+                   NULL,NULL,SW_SHOWNORMAL);
+
+13.注意 在响应退出的时候 不能直接发送WM_DESTROY消息 要发送WM_CLOSE消息
+
+
+//--------------------------1.0版-------------------------------------//
